@@ -1,6 +1,5 @@
-# Etapa 1: Construcción
+# Etapa 1: Build
 FROM node:20-alpine AS builder
-
 WORKDIR /app
 
 COPY . .
@@ -10,11 +9,11 @@ RUN npm run build
 
 # Etapa 2: Producción
 FROM node:20-alpine
-
 WORKDIR /app
 
-COPY --from=builder /app ./
+COPY --from=builder /app /app
+
+RUN npm install --omit=dev
 
 EXPOSE 3000
-
 CMD ["npm", "start"]
