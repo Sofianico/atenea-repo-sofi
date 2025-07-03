@@ -1,4 +1,5 @@
-"use client";
+'use client';
+export const dynamic = "force-dynamic";
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useQuestionsPath } from "@/features/question/hooks/useQuestionsPath";

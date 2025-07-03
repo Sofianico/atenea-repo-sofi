@@ -1,3 +1,6 @@
 export const getBrowserLanguage = () => {
-  return navigator.language.split("-")[0];
+  if (typeof window !== "undefined" && typeof navigator !== "undefined") {
+    return navigator.language.split("-")[0];
+  }
+  return "esp"; 
 };
