@@ -41,7 +41,8 @@ export default function LearningGoalQuestion() {
           priority
         />
 
-        <h1>{typeof t === "function" ? t("greeting", firstName ?? "usuario") : "¡Hola!"}</h1>
+        <h1>{firstName ? t("greeting", firstName) : "Hola"}</h1>
+
 
 
         <div className="section-text">
