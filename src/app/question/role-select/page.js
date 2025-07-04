@@ -43,7 +43,7 @@ export default function RoleSelectQuestion() {
           priority
         />
 
-        <h1>{t("next_question")}</h1>
+        <h1>{t?.("next_question") || "..."}</h1>
 
         <div className="section-text">
           <p>{t("what_roles_are_you_interested_in")}</p>
