@@ -40,7 +40,7 @@ export default function EducationLevelQuestion() {
           priority
         />
 
-        <h1>{t("last_question")}</h1>
+        <h1>{t("last_question") ?? "Última pregunta"}</h1>
 
         <div className="section-text">
           <p>{t("what_is_your_highest_level_of_education")}</p>
