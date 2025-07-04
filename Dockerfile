@@ -1,14 +1,13 @@
-# Etapa 1: build
-FROM node:20-alpine as builder
+# Usamos node para construir
+FROM node:18 as build
 WORKDIR /app
 COPY . .
-RUN npm install
-RUN npm run build
+RUN npm install && npm run build
 
-# Etapa 2: producción
-FROM node:20-alpine
+# Usamos una imagen liviana para servir los archivos estáticos
+FROM node:18-slim
 WORKDIR /app
-COPY --from=builder /app ./
-RUN npm install --omit=dev
+RUN npm install -g serve
+COPY --from=build /app/dist .
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["serve", "-s", ".", "-l", "3000"]
